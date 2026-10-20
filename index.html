@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/b5a53553b9.js" crossorigin="anonymous"></script>
+    <style>
+        /* =======================
+        GLOBAL STYLES
+        ======================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* =======================
+        HEADER
+        ====================== */
+
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #0d0d0d;
+            z-index: 1000;
+
+            background: rgba(23, 22, 22, 0.6);
+            /* transparent */
+            backdrop-filter: blur(10px);
+            /* blur effect */
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.007);
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            position: relative;
+            /* important for underline */
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hover color */
+        nav ul li a:hover {
+            color: #ffbd39;
+        }
+
+        /* Animated Underline */
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #ffbd39;
+            transition: width 0.3s ease;
+        }
+
+        /* On hover show underline */
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Active link */
+        nav ul li a.active {
+            color: #ffbd39;
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* =======================
+         HERO SECTION
+        ======================= */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 7%;
+            margin-top: 20px;
+        }
+
+        /* Left Side 30% */
+        .hero-left {
+            width: 30%;
+        }
+
+        .hero-left h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero-left span {
+            color: #ffbd39;
+        }
+
+        .hero-left h2 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .hero-left .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-right: 10px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid #fff;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Right Side 65% */
+        .hero-right {
+            width: 80%;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        /* Slides */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /*    VIEW CV BUTTON */
+
+        .btn-primary {
+            display: inline-block;
+            /*background:#ffbd39;*/
+            color: #f4e3e3;
+            padding: 10px 30px;
+            border-radius: 50px;
+            /* pill shape */
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #ffbd39;
+        }
+
+        /* Hover Effect */
+        .btn-primary:hover {
+            background: #ffbd39;
+            color: #0d0d0d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+        }
+
+
+        /* ==========================
+   ABOUT SECTION
+========================== */
+
+        .about-section {
+            padding: 100px 8%;
+            background: #111;
+            color: #fff;
+        }
+
+        .about-container {
+            display: flex;
+            gap: 5%;
+            align-items: flex-start;
+        }
+
+        /* LEFT 35% */
+        .about-left {
+            width: 35%;
+            background: #1a1a1a;
+            padding: 25px;
+            border: radius 10px;
+            px;
+        }
+
+        .about-img {
+            width: 150px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .about-details p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .about-summary {
+            margin-top: 20px;
+        }
+
+        .about-summary h3 {
+            margin-bottom: 20px;
+            color: #ffbd39;
+        }
+
+        .summary-text {
+            text-align: justify;
+            line-height: 1.5;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        /* RIGHT 65% */
+        .about-right {
+            width: 65%;
+        }
+
+        .about-right h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-right h1::after {
+            content: "";
+            width: 70px;
+            height: 3px;
+            background: #ffbd39;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+        }
+
+        .about-right p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* ==========================
+   EDUCATION SECTION
+========================== */
+
+        .education-section {
+            padding: 100px 8%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Title */
+        .section-title {
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .edu-underline {
+            width: 245px;
+            height: 3px;
+            background: #ffbd39;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Cards Layout */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        /* Card Style */
+        .edu-card {
+            background: linear-gradient(145deg, #111, #1c1c1c);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: justify;
+            transition: 0.4s ease;
+        }
+
+        /* Hover effect */
+        .edu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 189, 57, 0.2);
+        }
+
+        /* Date */
+        .edu-date {
+            color: #ffbd39;
+            font-size: 22px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Headings */
+        .edu-card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .edu-card h4 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph */
+        .edu-card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .edu-card ul {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .edu-card:hover {
+            background: #02154d;
+            transform: translateY(-10px);
+        }
+
+        /* new education work */
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        /* Overlay layer */
+        .layer {
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 16px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer ul {
+            text-align: left;
+            font-size: 16px;
+            color: #f4cc07f7;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        /* Hover Effects */
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        /* Button */
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: #ff004f;
+        }
+
+        /* ============================= */
+        /* EXPERIENCE SECTION STYLING   */
+        /* ============================= */
+
+        .experience-section {
+            padding: 100px 8%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Title */
+        .section-title {
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .exp-underline {
+            width: 720px;
+            height: 3px;
+            background: #ffbd39;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Cards Layout */
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        /* Card Style */
+        .exp-card {
+            background: #262626;
+            /*  background: linear-gradient(145deg, #111, #1c1c1c); */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: justify;
+            transition: 0.4s ease;
+        }
+
+        /* Hover effect */
+        .exp-card:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #f60569);
+            /* background: #f60569;
+background: #042da9e6;*/
+            transform: translateY(-10px);
+        }
+
+        /* Date */
+        .exp-date {
+            color: #ffbd39;
+            font-size: 22px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Headings */
+        .exp-card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .exp-card h4 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph */
+        .exp-card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .exp-card ul {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /*    VIEW CV BUTTON */
+
+        .btn-primary {
+            display: inline-block;
+            /*background:#ffbd39; */
+            color: #faf6f6;
+            padding: 10px 30px;
+            border-radius: 50px;
+            /* pill shape */
+            font-weight: 600;
+            font-size: 16px;
+            /*text-transform:uppercase; */
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1.5px solid #ffbd39;
+        }
+
+        /* Hover Effect */
+        .btn-primary:hover {
+            background: transparent;
+            color: #080808;
+            background: #ffbd39;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+        }
+
+        /* ============================= */
+        /* PROJECT SECTION STYLING      */
+        /* ============================= */
+        .project-section {
+            padding: 100px 8%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Title */
+        .section-title {
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .proj-underline {
+            width: 900px;
+            height: 3px;
+            background: #ffbd39;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Cards Layout */
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        /* Card Style */
+        .proj-card {
+            background: linear-gradient(145deg, #282626, #494646);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: left;
+            transition: 0.4s ease;
+        }
+
+        /* Hover effect */
+        .proj-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 189, 57, 0.2);
+        }
+
+        /* Date */
+        .proj-date {
+            color: #ffbd39;
+            font-size: 22px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Headings */
+        .proj-card h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .proj-card h4 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph */
+        .proj-card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .proj-card ul {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            overflow: hidden;
+        }
+
+        /* Image */
+        .project-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.08);
+        }
+
+        /* Button */
+        .project-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background: #ffbd39;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* ============================= */
+        /* SKILLS SECTION */
+        /* ============================= */
+
+        .skills-section {
+            background: #000;
+            color: #fff;
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 46px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .title-line {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #ccc, #ffbd39);
+            margin: 20px auto 60px;
+        }
+
+        /* GRID */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* ============================= */
+        /* PROGRESS BARS */
+        /* ============================= */
+
+        .skill {
+            margin-bottom: 30px;
+        }
+
+        .skill-title {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #b9b3b3;
+        }
+
+        .progress {
+            width: 100%;
+            height: 16px;
+            background: #5f5e5e;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #ffbd39;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* ============================= */
+        /* RIGHT SIDE TEXT */
+        /* ============================= */
+
+        .skills-section {
+            background: #000;
+            color: #fff;
+            padding: 110px 8%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .skills-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .skills-divider {
+            width: 120px;
+            height: 3px;
+            background: #ffbd39;
+            margin: 20px auto 70px auto;
+        }
+
+        /* Layout */
+
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: start;
+        }
+
+        /* LEFT SIDE BARS */
+
+        .skill {
+            margin-bottom: 28px;
+        }
+
+        .skill span {
+            font-size: 18px;
+            color: #ccc;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 8px;
+            background: #222;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: #ffbd39;
+            transition: width 1.2s ease;
+        }
+
+        /* RIGHT SIDE */
+
+        .skills-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+        }
+
+        .info-item h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #fff;
+            line-height: 1.0;
+        }
+
+        .info-item p {
+            color: #aaa;
+            line-height: 1.0;
+            font-size: 16px;
+
+        }
+
+        /* Hover effect */
+
+        .info-item:hover h3 {
+            color: #ffbd39;
+            transition: 0.3s;
+        }
+
+        /* ============================= */
+        /* Honors & CERTIFICATION SECTION STYLING      */
+        /* ============================= */
+        .honor-section {
+            padding: 100px 8%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Title */
+        .section-title {
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .honor-underline {
+            width: 650px;
+            height: 3px;
+            background: #ffbd39f2;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Cards Layout */
+        .honor-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        /* Card Style */
+        .honor-card {
+            background: linear-gradient(145deg, #282626, #494646);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: left;
+            transition: 0.4s ease;
+        }
+
+        /* Hover effect */
+        .honor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 189, 57, 0.2);
+        }
+
+        /* Date */
+        .honor-date {
+            color: #ffbd39;
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Headings */
+        .honor-card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 100px;
+        }
+
+        .honor-card h4 {
+            font-size: 14px;
+            letter-spacing: 0px;
+            color: #dbd3d3;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Paragraph */
+        .honor-card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #ccc;
+        }
+
+        .honor-card ul {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        /* Project Card Styling */
+        .honor-card {
+            overflow: hidden;
+        }
+
+        /* Image */
+        .honor-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .honor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .honor-card:hover .project-img img {
+            transform: scale(1.08);
+        }
+
+        /* Button */
+        .honor-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background: #ffbd39;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .honor-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* ============================= */
+        /* CONTACT SECTION */
+        /* ============================= */
+
+        .contact-section {
+            background: #000;
+            color: #fff;
+            padding: 120px 8%;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Header */
+
+        .contact-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .contact-header h2 {
+            font-size: 42px;
+            font-weight: 500;
+        }
+
+        .contact-header p {
+            color: #d5cdcd;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        /*.bg-text{
+position:absolute;
+top:-40px;
+left:50%;
+transform:translateX(-50%);
+font-size:130px;
+color:#1a1a1a;
+z-index:0;
+font-weight:700;
+opacity:0.4;
+} */
+
+        /* Grid Layout */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Card */
+
+        .contact-card {
+            text-align: center;
+        }
+
+        /* Circle icon */
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 34px;
+            color: #ffbd39;
+        }
+
+        /* Titles */
+
+        .contact-card h3 {
+            font-size: 14px;
+            margin-bottom: 05px;
+        }
+
+        .contact-card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .contact-card a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        /* CV Button */
+
+        .cv-btn {
+            display: inline-block;
+            /*background:#ffbd39; */
+            color: #000;
+            padding: 10px 30px;
+            border-radius: 50px;
+            /* pill shape */
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #ffbd39;
+        }
+
+        /* Hover Effect */
+        .cv-btn:hover {
+            background: transparent;
+            color: #171616;
+            background: #ffbd39;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+        }
+
+        /* SOCIAL CONNECT */
+
+        .social-connect {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .find-text {
+            color: #aaa;
+            font-size: 20px;
+        }
+
+        /* ICONS */
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            width: 70px;
+            height: 70px;
+            background: #111;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffbd39;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ffbd39;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        /* COPYRIGHT */
+
+        .copyright {
+            margin-top: 120px;
+            text-align: center;
+            color: #c7c1c1;
+            font-size: 12px;
+        }
+
+        /* ==========================
+   RESPONSIVE HEADER / HERO
+========================== */
+
+        @media (max-width:768px) {
+
+            /* Header */
+
+            header {
+                display: flex;
+                flex-direction: column;
+                /* Logo first line, nav second */
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 15px 6%;
+            }
+
+            /* Logo */
+
+            .logo {
+                font-size: 18px;
+                font-weight: 400;
+                color: #fff;
+                margin-bottom: 10px;
+            }
+
+            /* Navigation */
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 10px 14px;
+                padding: 0;
+            }
+
+            /* Nav links */
+
+            nav ul li a {
+                font-size: 13px;
+                color: #fff;
+                padding: 3px 4px;
+            }
+
+            /* ================= HERO ================= */
+
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 6%;
+            }
+
+            /* Hero left */
+
+            .hero-left {
+                width: 100%;
+                margin-top: 90px;
+                margin-bottom: 25px;
+            }
+
+            /* Hero right */
+
+            .hero-right {
+                width: 100%;
+            }
+
+        }
+
+        /* ==========================
+   RESPONSIVE ABOUT 
+========================== */
+        @media(max-width:992px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-left,
+            .about-right {
+                width: 100%;
+            }
+
+            .about-left {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* ==========================
+   RESPONSIVE EDUCATION
+========================== */
+        @media(max-width:768px) {
+            .education-container {
+                grid-template-columns: 1fr;
+            }
+
+            .edu-underline {
+                width: 160px;
+                px;
+            }
+        }
+
+        /* ==========================
+   RESPONSIVE EXPERIENCE
+========================== */
+
+        @media (max-width:768px) {
+
+            /* Experience grid */
+
+            .experience-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Heading section */
+
+            .heading-section h1.big {
+                font-size: 4rem;
+                top: -20px;
+            }
+
+            /* Experience rows */
+
+            .exp-row {
+                justify-content: center !important;
+            }
+
+            /* Underline */
+
+            .exp-underline {
+                width: 200px;
+            }
+
+            /* Resume cards */
+
+            .resume-wrap {
+                width: 100%;
+                padding: 30px;
+            }
+
+            /* Big numbers */
+
+            .big-4 {
+                font-size: 40px;
+            }
+
+            .resume-wrap {
+                box-sizing: border-box;
+            }
+        }
+
+        /* ============================= */
+        /* RESPONSIVE PROJECT            */
+        /* ============================= */
+
+        @media (max-width:768px) {
+
+            /* Project grid */
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Section title */
+
+            .section-title {
+                font-size: 28px;
+                font-weight: 300;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            /* Underline */
+
+            .proj-underline {
+                width: 175px;
+                height: 3px;
+                background: #ffbd39;
+                margin: 0 auto 40px auto;
+            }
+
+            /* Project cards */
+
+            #project-section .row {
+                flex-direction: column;
+            }
+
+            #project-section .col-md-6 {
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
+        }
+
+        /* ============================= */
+        /* RESPONSIVE SKILLS             */
+        /* ============================= */
+
+        @media (max-width:900px) {
+
+            /* Skills grid */
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            /* Underline */
+
+            .title-line {
+                width: 200px;
+                height: 2px;
+            }
+
+            /* Skill info items */
+
+            .info-item {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                text-align: left;
+                gap: 6px;
+            }
+
+            /* Skill progress bars */
+
+            .skill-bar {
+                width: 100%;
+            }
+
+            /* Section spacing */
+
+            #skill-section {
+                padding: 40px 6%;
+            }
+
+        }
+
+        /* ==========================  RESPONSIVE HONOR ========================== */
+        @media (max-width:768px) {
+            .honor-underline {
+                width: 240px;
+            }
+
+            #honor-section .row {
+                display: block;
+            }
+
+            #honor-section .col-md-6 {
+                display: block;
+            }
+
+        }
+
+        /* Responsive */
+        @media (max-width:768px) {
+            .honor-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================
+   RESPONSIVE CONTACT
+========================== */
+
+        /* Tablet */
+
+        @media (max-width:768px) {
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .bg-text {
+                font-size: 40px;
+            }
+
+        }
+
+        /* Mobile */
+
+        @media (max-width:600px) {
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            /* Background text */
+
+            .bg-text {
+                font-size: 30px;
+            }
+
+            /* Find me text */
+
+            .find-text {
+                color: #aca6a6;
+                font-size: 14px;
+            }
+
+            /* Copyright */
+
+            .copyright {
+                margin-top: 60px;
+                text-align: center;
+                color: #aaa;
+                font-size: 12px;
+            }
+
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <link rel="stylesheet" href="index.css">
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#education-section">Education</a></li>
+                <li><a href="#experience-section">Experience</a></li>
+                <li><a href="#skill-section">Skills</a></li>
+                <li><a href="#honor-section">Certifications</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+
+        <!-- LEFT SIDE (30%) -->
+        <div class="hero-left">
+            <p>Hello!</p>
+            <h1>I'm <span>Muhammad Tariq</span></h1>
+            <h3>Certified Mud Logger & <BR>Well Site Geologist</h3>
+            <a href="CV_Tariq.pdf" target="_blank" class="btn btn-primary"> View CV</a>
+            <a href="#experience-section" class="btn btn-outline">My Experience</a>
+        </div>
+
+        <!-- RIGHT SIDE (65%) -->
+        <div class="hero-right">
+
+            <div class="slide active" style="background-image:url('img1.jpeg');"></div>
+            <div class="slide" style="background-image:url('img2.jpeg');"></div>
+            <div class="slide" style="background-image:url('img3.jpeg');"></div>
+            <div class="slide" style="background-image:url('img4.jpeg');"></div>
+            <div class="slide" style="background-image:url('img7.jpg');"></div>
+            <div class="slide" style="background-image:url('img6.jpg');"></div>
+        </div>
+
+    </section>
+    <!-- ================= ABOUT SECTION ================= -->
+    <hr>
+    <section class="about-section" id="about-section">
+        <h1 class="section-title">About Me</h1>
+        <div class="edu-underline"></div>
+        <div class="about-container">
+
+            <!-- LEFT SIDE (35%) -->
+            <div class="about-left">
+
+                <img src="Pic_Tariq.jpg" alt="Profile Image" class="about-img">
+
+                <div class="about-details">
+                    <p><strong>Name:</strong> Muhammad Tariq</p>
+                    <p><strong>Date of Birth:</strong> March 28, 2001</p>
+                    <p><strong>Role:</strong> Mud Logger & Geologist</p>
+                    <p><strong>Experience:</strong> 4+ Years</p>
+                    <p><strong>Specialty:</strong> Petroleum Geology</p>
+                    <p><strong>Location:</strong> Karachi, Pakistan</p>
+                </div>
+
+                <div class="about-summary">
+                    <h3>Summary</h3>
+                    <p class="summary-text">
+                        Results-driven Mud Logger with 4+ years of comprehensive well site experience and advanced
+                        geological qualifications.
+                        Expertise in real-time drilling surveillance, formation evaluation, and hydrocarbon
+                        detection.
+                        <br>
+                        Proven ability to enhance drilling efficiency through meticulous data analysis, proactive hazard
+                        identification, and precise geological reporting.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE (65%) -->
+            <div class="about-right">
+                <p>
+                    I am Muhammad Tariq, a certified Mud Logger and Well Site Geologist based in Karachi, Pakistan
+                    , specializing in subsurface mapping techniques, sedimentology, and petroleum geology.
+                </p>
+
+                <p>
+                    Throughout my professional journey with Petroservice GmbH, I have gained hands-on expertise in
+                    real-time drilling parameter monitoring, lithological analysis of cuttings, gas detection systems,
+                    and strict HSE compliance.
+                </p>
+
+                <p>
+                    Recognized as a Gold Medalist and 2nd Place winner in the Asia Pacific Region for the Imperial
+                    Barrel Award (AAPG) 2022, I am committed to maintaining the highest standards of safety and
+                    technical accuracy in dynamic exploration environments.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= EDUCATION SECTION ================= -->
+    <hr>
+    <section class="education-section" id="education-section">
+
+        <h1 class="section-title">Education</h1>
+        <div class="edu-underline"></div>
+
+        <div class="education-container">
+
+            <!-- Card 1 -->
+            <div class="work">
+                <div class="edu-card">
+                    <div class="edu-card-front">
+                        <span class="edu-date">Master of Science in Geology </span>
+                        <h3>University of Karachi, Pakistan</h3>
+                        <h4>Jan, 2021 - Dec, 2021 </h4>
+                        <p>Faculty: Science | Major: Geology | Percentage: 60.8%</p>
+                        <p>First Division | Level of EQF: 7 | 120 ECTS Credits</p>
+                        <p><b>Major Foucus:</b> petroleum exploration Techniques, Well logging Techniques and Soil
+                            mechanics.</p>
+                    </div>
+                    <div class="layer">
+                        <h3>Specialization Focus</h3>
+                        <p>Advanced studies concentrating on subsurface mechanics and basin analysis.</p>
+                        <ul>
+                            <li>Petroleum Geology</li>
+                            <li>Sedimentology</li>
+                            <li>Subsurface Mapping Techniques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="work">
+                <div class="edu-card">
+                    <div class="edu-card-front">
+                        <span class="edu-date">Bachelor of Science (Honors) in Geology </span>
+                        <h3>University of Karachi, Pakistan</h3>
+                        <h4>Jan, 2018 - Dec, 2020</h4>
+                        <p>Faculty: Science | Major: Geology | 58.46% </p>
+                        <p>Second Division | Level of EQF: 6 | 180 ECTS Credits</p>
+                        <p><b>Major Foucus:</b> Core curriculum included stratigraphy, structural geology, and
+                            geophysical methods.</p>
+                    </div>
+                    <div class="layer">
+                        <h3>Core Curriculum</h3>
+                        <p> Foundational geological training and structural analysis framework.</p>
+                        <ul>
+                            <li>Stratigraphy</li>
+                            <li>Structural Geology</li>
+                            <li>Geophysical Methods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="work">
+                <div class="edu-card">
+                    <div class="edu-card-front">
+                        <span class="edu-date">Heigher Secendory School Certificate (HSSC)</span>
+                        <h3>F.G Boys Inter College Dr. Daud Pota Road Karachi</h3>
+                        <h4>Oct, 2015 – May, 2017</h4>
+                        <p>Field of Study: Pre-Engineering | Marks Obtd/Total: 707/1100</p>
+                        <p>Percentage: 64% | Grade: B | EQF Level: 4</p>
+                        <p><strong>Major Focus:</strong> Mathematics, Physics, Chemistry</p>
+
+                    </div>
+                    <!-- DETAILS CONTENT -->
+                    <div class="layer">
+
+                        <h3>Academic Details</h3>
+                        <p>
+                            Higher Secondary School Certificate / Intermediate / A - level
+                        </p>
+                        <ul>
+                            <li> XI Annual-2016 | Marks 346/550 | 63% | BIE Karachi</li>
+                            <li>XII Annual-2017 | Marks 361/550 | 66% | BIE Karachi</li>
+                            <br>
+                            <p><strong>Overall | Marks 707/1100 | 64% | Grade B</strong></p>
+
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="work">
+                <div class="edu-card">
+                    <span class="edu-date">Matriculation (SSC)</span>
+                    <h3>Education Trust Nasra Secondary School Karachi</h3>
+                    <h4>Apr, 2013 – Mar, 2015</h4>
+                    <p>Field of Study: Science | Marks Obtd/Total: 620/850</p>
+                    <p>Percentage: 73% | Grade: A | EQF Level: 3</p>
+                    <p><strong>Major Focus:</strong> Mathematics, Physics, Chemistry & Biology</p>
+                    <div class="layer">
+
+                        <h3>Academic Details</h3>
+                        <p>
+                            Secondary Secondary School Certificate / O - level
+                        </p>
+                        <ul>
+                            <li>IX Annual-2014 | Marks 278/425 | 65.41% | BSE Karachi</li>
+                            <li> X Annual-2015 | Marks 342/425 | 80.47% | BSE Karachi</li>
+                            <br>
+                            <p><strong>Overall | Marks: 620/850 | Percentage: 73% | Grade: A</strong></p>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EXPERIENCE SECTION START =================-->
+    <hr>
+    <section class="experience-section" id="experience-section">
+
+        <h1 class="section-title">Professional Experience</h1>
+        <div class="exp-underline"></div>
+
+        <div class="experience-container">
+
+            <!-- Card 1 -->
+            <div class="exp-card">
+                <span class="edu-date">Mud Logger / Wellsite Geologist</span>
+                <h3>Petroservice GmbH <br> Oil & Gas Services Division, Pakistan</h3>
+                <h4>December 2023 – Present</h4>
+                <ul>
+                    <li>Monitored real-time drilling parameters (ROP, WOB, RPM, SPP) to optimize operations and detect
+                        formation changes.</li>
+                    <li>Conducted detailed lithological analysis of cuttings and performed hydrocarbon show evaluation
+                        via fluorescence and cut tests.</li>
+                    <li>Operated gas detection systems (total gas and chromatograph C1-C5) to identify pay zones and
+                        assess reservoir potential.</li>
+                    <li>Applied lag time corrections for accurate depth correlation between samples and down-hole
+                        formations.</li>
+                    <li>Maintained and calibrated rig sensors (gas traps, flow meters, pit indicators) to ensure data
+                        accuracy.</li>
+                    <li>Identified drilling hazards (kicks, losses, overpressure) and provided immediate alerts to
+                        drilling personnel.</li>
+                    <li>Compiled comprehensive Master Mud Logs and prepared daily/final well reports.</li>
+                    <li>Enforced HSE protocols including H2S monitoring and hazardous material handling.</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="exp-card">
+                <span class="exp-date">Trainee Mud Logger / Junior Geologist</span>
+                <h3>Petroservice GmbH<br> Field Operations Division, Pakistan</h3>
+                <h4>March 2022 – December 2023</h4>
+                <ul>
+                    <li>Systematically collected geological samples at predetermined intervals from shale shakers and
+                        desanders.</li>
+                    <li>Performed microscopic examination of cuttings, describing texture, grain size, sorting, and
+                        roundness under supervision.</li>
+                    <li>Assisted in maintaining accurate depth correlation between drilling parameters and sample
+                        depths.</li>
+                    <li>Gained proficiency in operating mud logging sensors, gas traps, and chromatographic
+                        analyzers.</li>
+                    <li>Participated in rig safety meetings, JSA reviews, and implemented permit-to-work
+                        procedures.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==============================
+     SKILLS SECTION START
+    =================================-->
+    <hr>
+    <section class="skills-section" id="skill-section">
+
+        <div class="container">
+
+            <h1 class="section-title">Technical Expertise</h1>
+            <div class="title-line"></div>
+
+            <div class="skills-grid">
+
+                <!-- LEFT SIDE : PROGRESS BARS -->
+                <div class="skills-bars">
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>Mud Logging Operations</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>Formation Evaluation</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>Drilling Optimization</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>Safety Systems & H2S</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>Software (ArcGIS / Office)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-title">
+                            <span>API Reporting Standards</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:90%"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE : SKILL DETAILS -->
+                <div class="skills-info">
+
+                    <div class="info-item">
+                        <h3>Mud Logging Operations</h3>
+                        <p>Comprehensive wellsite geology, cuttings description, gas logging, drilling parameter
+                            monitoring</p>
+                        <br> <br>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Formation Evaluation</h3>
+                        <p>Lithology identification, porosity estimation, hydrocarbon show evaluation, correlation
+                            techniques</p>
+                        <br> <br>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Drilling Optimization</h3>
+                        <p>Drilling efficiency analysis, problem detection (stuck pipe, lost circulation), pore pressure
+                            prediction support</p>
+                        <br> <br>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Safety Systems</h3>
+                        <p>H2S monitoring, gas detection protocols, emergency response procedures, hazard
+                            identification</p>
+                        <br> <br>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Software Proficiency</h3>
+                        <p>Mud logging software systems, geological data management, Microsoft Office Suite,
+                            ArcGIS</p>
+                        <br> <br>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Reporting Standards</h3>
+                        <p>API reporting guidelines, wellsite documentation, regulatory compliance documentation
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+     CERTIFICATION SECTION START
+=================================-->
+    <hr>
+    <section class="honor-section" id="honor-section">
+
+        <h1 class="section-title">Honors & Certifications</h1>
+        <div class="honor-underline"></div>
+
+        <div class="honor-container">
+
+            <!-- Card 1 -->
+            <div class="honor-card">
+                <span class="honor-date">AWARDS & RECOGNITION</span>
+                <h2>Gold Medalist – Imperial Barrel Award 2022</h2>
+                <p>American Association of Petroleum Geologists (AAPG). Recognized for excellence in basin analysis,
+                    prospect evaluation, and technical presentation.</p>
+                <br>
+                <h2>2nd Place – Imperial Barrel Award 2022 (Asia Pacific Region)</h2>
+                <p>American Association of Petroleum Geologists (AAPG). Competed against top geological teams across
+                    Asia Pacific in petroleum exploration challenge.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="honor-card">
+                <span class="honor-date">PROFESSIONAL CERTIFICATIONS</span>
+                <h2>IWCF Level 1 (International Well Control Forum)</h2>
+                <p>Well control principles and kick detection.</p>
+                <br>
+                <h2>H2S Safety Certification</h2>
+                <p>Sour gas handling, detection methods, and emergency response (Rutledge, Pakistan).</p>
+                <br>
+                <h2>Fire Fighting & Advanced First Aid</h2>
+                <p>Rig emergency response and medical management.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="honor-card">
+                <span class="honor-date">TRAINING & WORKSHOPS</span>
+                <h2>Mud Logging Certification Program</h2>
+                <p>Petroservice GmbH comprehensive training: Basic & Advanced Principles, Data Acquisition, Sample
+                    Description.</p>
+                <br>
+                <h2>Well Logging & Formation Evaluation Workshop</h2>
+                <p>Department of Geology, University of Karachi.</p>
+                <br>
+                <h2>ArcGIS for Petroleum Geologists</h2>
+                <p>Spatial data analysis and mapping applications.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="honor-card">
+                <span class="honor-date">SAFETY & COMPLIANCE</span>
+                <h2>HSE & Risk Assessment Training</h2>
+                <p>Health, Safety & Environment (HSE) Compliance industry best practices and regulations.</p>
+                <br>
+                <h2>Permit to Work System & Risk Assessment</h2>
+                <p>Control of work procedures and JSA implementation.</p>
+            </div>
+        </div>
+    </section>
+    <!-- ==============================
+     CONTACT SECTION START
+=================================-->
+    <hr>
+    <section class="contact-section" id="contact-section">
+
+        <div class="container">
+
+            <div class="contact-header">
+                <h2>Contact Me</h2>
+                <p>Below are the details to reach out to me!</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Address -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <h3>ADDRESS</h3>
+                    <p>Karachi, Pakistan</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <h3>CONTACT NUMBER</h3>
+                    <p><a href="tel:+923128716558">+92-312-8716558</a></p>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa fa-paper-plane"></i>
+                    </div>
+                    <h3>EMAIL ADDRESS</h3>
+                    <p><a href="mailto:tariqbalti90@gmail.com">tariqbalti90@gmail.com</a></p>
+                </div>
+
+                <!-- Resume -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>DOWNLOAD RESUME</h3>
+                    <a href="CV_Tariq.pdf" target="_blank" class="cv-btn">
+                        VIEW CV
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- SOCIAL LINKS -->
+        <div class="social-connect">
+            <p class="find-text">Find me on</p>
+            <br>
+            <div class="social-icons">
+                <a href="https://linkedin.com/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="https://web.wechat.com/" target="fareewah2324/">
+                    <i class="fab fa-weixin"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="copyright">
+            <p>Copyright ©2026-tariq. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- ================= SLIDER SCRIPT ================= -->
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let current = 0;
+
+        function changeSlide() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }
+
+        setInterval(changeSlide, 3500);
+    </script>
+
+</body>
+
+</html>
